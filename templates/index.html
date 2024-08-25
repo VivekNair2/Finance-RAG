@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Babrik AI</title>
+  <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+}
+
+
+.sidebar {
+  width: 250px;
+  background-color: #2d2d2d;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+
+.sidebar:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  height: 40px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.sidebar input[type="text"] {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #3d3d3d;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.sidebar nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  color: #000000;
+  background-color: #544c4c;
+}
+
+.bottom-menu {
+  margin-top: auto;
+}
+
+.bottom-menu a {
+  display: block;
+  color: #f8f5f5;
+  text-decoration: none;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+  
+}
+
+.bottom-menu a:hover {
+  color: #000000;
+  background-color: #544c4c ;
+}
+
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.action-group {
+  background-color: #2d2d2d;
+  padding: 20px;
+  border-radius: 10px;
+  width: 30%;
+}
+
+.action-group h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.action-group button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #3d3d3d;
+  border: none;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.chat-container {
+  flex: 1;
+  background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-history {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  max-width: 70%;
+}
+
+.user-message {
+  background-color: rgba(255, 255, 255, 0.1);
+  align-self: flex-end;
+  text-align: right;
+}
+
+.assistant-message {
+  background-color: rgba(0, 0, 0, 0.3);
+  align-self: flex-start;
+}
+
+.input-container {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  align-items: center;
+}
+
+#question-form {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+#question-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background-color: #353131;
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #4d36d0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo"><img src="static/logo.png" alt="Babrik AI Logo"></div>
+    <input type="text" placeholder="Search">
+    <nav>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">CRM</a></li>
+        <li><a href="#">Integration</a></li>
+        <li><a href="#">Co-Pilot</a></li>
+        <li><a href="#">Insights</a></li>
+      </ul>
+    </nav>
+    <div class="bottom-menu">
+      <a href="#">Support</a>
+      <a href="#">Settings</a>
+    </div>
+  </div>
+  <div class="main-content">
+    <h1>Hello Vivek!</h1>
+    <div class="action-buttons">
+      <div class="action-group">
+        <h3>Extract</h3>
+        <button>Invoices</button>
+        <button>Receipts</button>
+        <button>Transactions</button>
+      </div>
+      <div class="action-group">
+        <h3>Analyze</h3>
+        <button>Income Statement</button>
+        <button>Cash Flow Statement</button>
+        <button>Budget vs. Actual Report</button>
+      </div>
+      <div class="action-group">
+        <h3>Inquire</h3>
+        <button>Last Quarter Revenue Trend?</button>
+        <button>Top Client Profitability?</button>
+        <button>Expense Breakdown Analysis?</button>
+      </div>
+    </div>
+    <div class="chat-container">
+      <div class="chat-history" id="chat-history">
+        <div class="chat-message assistant-message">
+          <p>Welcome to Babarik AI. How can I help you?</p>
+        </div>
+      </div>
+      <div class="input-container">
+        <form id="question-form">
+          <input
+            type="text"
+            id="question-input"
+            placeholder="How can we help you?"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("question-form");
+      const chatHistory = document.getElementById("chat-history");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const input = document.getElementById("question-input").value.trim();
+
+        if (input) {
+          sendQuestion(input);
+        }
+      });
+
+      function sendQuestion(question) {
+        displayMessage("user", question);
+        displayLoadingMessage();
+        
+        fetch("/ask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ question: question }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to fetch response from server");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const response = data.response;
+            updateAssistantMessage(response);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            updateAssistantMessage("Error occurred. Please try again later.");
+          });
+
+        document.getElementById("question-input").value = "";
+      }
+
+      function displayMessage(role, content) {
+        const messageClass = role === "user" ? "user-message" : "assistant-message";
+        const message = document.createElement("div");
+        message.className = `chat-message ${messageClass}`;
+        if (role === "user") {
+          message.innerHTML = `<p>${content}</p>`;
+        } else {
+          message.innerHTML = `<p>Loading...</p>`;
+        }
+        chatHistory.appendChild(message);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+
+      function displayLoadingMessage() {
+        const message = document.createElement("div");
+        message.className = `chat-message assistant-message loading`;
+        message.innerHTML = `<p>Loading...</p>`;
+        chatHistory.appendChild(message);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+
+      function updateAssistantMessage(response) {
+        const loadingMessage = chatHistory.querySelector(".assistant-message.loading");
+        if (loadingMessage) {
+          loadingMessage.classList.remove("loading");
+          loadingMessage.innerHTML = ""; 
+          const messageParagraph = document.createElement("p");
+          loadingMessage.appendChild(messageParagraph);
+          typeWriter(messageParagraph, response); 
+        }
+      }
+
+      function typeWriter(element, text, speed = 9) {
+        let i = 0;
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        type();
+      }
+    });
+  </script>
+</body>
+</html>
